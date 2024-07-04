@@ -1,0 +1,33 @@
+const trendingNow = [
+    "images/poster1.jpg",
+    "images/poster2.jpg",
+    "images/poster3.jpg",
+    "images/poster4.jpg",
+    "images/poster5.jpg"
+];
+
+const topPicks = [
+    "images/poster6.jpg",
+    "images/poster7.jpg",
+    "images/poster8.jpg",
+    "images/poster9.jpg",
+    "images/poster10.jpg"
+];
+
+function createPosterElement(src) {
+    const img = document.createElement('img');
+    img.src = src;
+    return img;
+}
+
+function loadPosters(sectionId, posters) {
+    const section = document.getElementById(sectionId);
+    posters.forEach(poster => {
+        section.appendChild(createPosterElement(poster));
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadPosters('trendingNow', trendingNow);
+    loadPosters('topPicks', topPicks);
+});
